@@ -899,11 +899,11 @@ $(TAILCALL_INTERFACE_CONSERVESTACK_IL): tailcall/interface-conservestack.stamp
 
 tailcall/fsharp-deeptail.stamp: tailcall/split-fsharp$(EXEEXT) tailcall/fsharp-deeptail.il
 	./tailcall/split-fsharp$(EXEEXT) < $(srcdir)/tailcall/fsharp-deeptail.il
-	touch -f $@
+	touch $@
 
 tailcall/interface-conservestack.stamp: split-tailcall-interface-conservestack$(EXEEXT) tailcall-interface-conservestack.il
 	./split-tailcall-interface-conservestack$(EXEEXT) < $(srcdir)/tailcall-interface-conservestack.il
-	touch -f $@
+	touch $@
 
 noinst_PROGRAMS = tailcall/split-fsharp split-tailcall-interface-conservestack
 
