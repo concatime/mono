@@ -11,8 +11,8 @@ LLVM_DOWNLOAD_LOCATION = "https://xamjenkinsartifact.blob.core.windows.net/build
 
 CPU_COUNT ?= $(shell getconf _NPROCESSORS_ONLN || echo 8)
 
-CMAKE := $(or $(CMAKE),$(shell which cmake))
-NINJA := $(shell which ninja)
+CMAKE := $(or $(CMAKE),$(shell command -v cmake))
+NINJA := $(shell command -v ninja)
 
 EXTRA_LLVM_ARGS = $(if $(filter $(LLVM_TARGET),wasm32), -DLLVM_BUILD_32_BITS=On -DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD="WebAssembly",) \
 	$(if $(STATIC_GCC_LIBS),-DCMAKE_EXE_LINKER_FLAGS="-static")
